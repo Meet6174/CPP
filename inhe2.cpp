@@ -11,7 +11,7 @@ public:
 class B : public A {
 public:
     void f2() {
-        cout << "B class" << endl;
+        cout << "B class :" << endl;
     }
 };
 
@@ -29,3 +29,4 @@ int main() {
     c.f3();
     return 0;
 }
+
