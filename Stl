@@ -1,0 +1,78 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+class Student {
+    int rollNo;
+    string name;
+    float marks;
+public:
+    Student(int r, string n, float m) {
+        rollNo = r;
+        name = n;
+        marks = m;
+    }
+    int getRollNo() { return rollNo; }
+    string getName() { return name; }
+    float getMarks() { return marks; }
+    void display() {
+        cout << "Roll No: " << rollNo
+             << ", Name: " << name
+             << ", Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    vector<Student> students;
+    int choice;
+    do {
+        cout << "\n--- Student Management ---\n";
+        cout << "1. Add Student\n";
+        cout << "2. Display All Students\n";
+        cout << "3. Search Student by Roll No\n";
+        cout << "4. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            int r; string n; float m;
+            cout << "Enter Roll No: ";
+            cin >> r;
+            cout << "Enter Name: ";
+            cin >> n;
+            cout << "Enter Marks: ";
+            cin >> m;
+            students.push_back(Student(r, n, m));
+            cout << "Student Added!\n";
+        }
+        else if (choice == 2) {
+            cout << "\n--- Student List ---\n";
+            for (auto &s : students) {
+                s.display();
+            }
+        }
+        else if (choice == 3) {
+            int r;
+            cout << "Enter Roll No to Search: ";
+            cin >> r;
+            bool found = false;
+            for (auto &s : students) {
+                if (s.getRollNo() == r) {
+                    s.display();
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) cout << "Student not found!\n";
+        }
+        else if (choice == 4) {
+            cout << "Exiting program...\n";
+        }
+        else {
+            cout << "Invalid choice!\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
