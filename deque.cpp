@@ -8,9 +8,11 @@ int main()
   d.push_back(4);
   d.push_front(2);
   d.push_front(1);
+  d.push_front(0);
 for (int x : d)
 {
     cout<<x<<" ";
 }
     return 0;
+
 }
