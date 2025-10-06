@@ -18,6 +18,7 @@ public:
         if (head == nullptr || head->next == nullptr || k == 0) {
             return head;
         }
+// counting Nodes
         while (ptr != nullptr) {
             ptr = ptr->next;
             i++;
@@ -26,6 +27,7 @@ public:
         if (k == 0) {
             return head;
         }
+//update K values
         k = i - k;
         ptr = head;
         for (int j = 0; j < k; j++) {   
