@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int mySqrt(int x) {
+        long long mid,str=0,end=x,ans;
+        if(x<1)return 0;
+        if(x<2)return 1;
+        while(str<=end)
+        {
+            mid=str+(end-str)/2;
+            if(mid*mid==x)return mid;
+            if(mid*mid<=x)
+            ans=mid;
+            if(mid*mid>x)
+            {
+                end=mid-1;
+            }
+            else
+            {
+                str=mid+1;
+            }    
+        }
+        return ans;
+    }
+};
