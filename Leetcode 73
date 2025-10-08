@@ -1,0 +1,34 @@
+class Solution {
+public:
+    void dozero(int row,int colomn,vector<vector<int>>& mat)
+    {
+        for(int a=0;a<mat.size();a++)
+        {
+            mat[a][colomn]=0;
+        } 
+        for(int a=0;a<mat[0].size();a++)
+        {
+            mat[row][a]=0;
+        }
+    }
+    void setZeroes(vector<vector<int>>& mat) {
+        vector<vector<int>> ans;
+        int n=mat.size(),m=mat[0].size();
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(mat[j][i]==0)
+                {
+                    ans.push_back({j,i});
+                }
+            }
+        }
+        for(int k=0;k<ans.size();k++)
+        {
+            int row=ans[k][0];
+            int colomn=ans[k][1];
+            dozero(row,colomn,mat);
+        }
+    }
+};
